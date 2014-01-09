@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+saveIFS=$IFS
+IFS=$':'
+
+savePATH=$PATH
+
+PATH=/usr/bin:/bin
+
+if [ $# -le 0 ] ; then
+        echo "Usage: $0 <filename>"
+        exit 1
+fi
+
+for f in  $savePATH
+do
+        # echo $f
+
+        if [ -x $f/$1 ] ; then
+                echo $f/$1
+        fi
+done
+
